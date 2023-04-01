@@ -5,7 +5,7 @@ goes like this:
 
   * first-stage bootloader from ROM
   * second-stage bootloader from EEPROM
-  * firmware `/start4.elf` with linker info `/fixup4.elf`
+  * firmware `/start4.elf` with linker info `/fixup4.dat`
   * kernel `/kernel8.img` [for 64-bit kernels]
 
 Even the first stage bootloader expects the first partition of the
@@ -49,7 +49,7 @@ the `/pieeprom.upd` image, then the update image is written to the SPI
 EEPROM and the system is reset.
 
 3. The firmware image is read from `/start4.elf` with linker fixups
-defined in `/fixups4.elf`.
+defined in `/fixup4.dat`.
 
 3a. The firmware reads `/config.txt`. If `start_file` and `fixup_file`
 are specified, those are loaded as a replacement firmware image and
